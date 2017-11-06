@@ -48,3 +48,5 @@ void GetNext(char* p,int next[])
         }  
     }  
 }  
+
+//KMP Algorithm
