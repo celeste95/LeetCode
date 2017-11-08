@@ -51,3 +51,5 @@ void GetNext(char* p,int next[])
 //KMP Algorithm
 
 //test
+
+// edit from GitHub Desktop
