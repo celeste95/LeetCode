@@ -16,6 +16,12 @@ public:
     }
 	
 	int maxDepth(TreeNode* root) {
+		//Accepted 
+        if(root==nullptr) return 0;
+        else return max(maxDepth(root->left) , maxDepth(root->right))+1;
+    }
+	
+	int maxDepth(TreeNode* root) {
 		//Accepted
         if(root==nullptr) return 0;
         queue<TreeNode* > q;
