@@ -9,5 +9,5 @@ bool wordPattern(string pattern, string str) {
             return false;
         p2i[pattern[i]] = w2i[word] = i + 1;
     }
-    return i == n;
+    return i == n;g
 }
