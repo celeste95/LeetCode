@@ -1,6 +1,14 @@
 class Solution {
 private:
     vector<vector<int>> ret;
+    void find4(vector<int>& nums,int start,int end,int ans1,int target)
+    {
+        for(int i=start; i<end; i++)
+        {
+            if(i!=start && nums[i]==nums[i-1]) continue;
+            find(nums,i+1,end,nums[i],ans1,target);
+        } 
+    }
     void find(vector<int> &nums,int start,int end,int ans2,int ans1,int target)
     {
         int l = start, r = end;  
@@ -23,14 +31,7 @@ private:
             }  
         } 
     }
-    void find4(vector<int>& nums,int start,int end,int ans1,int target)
-    {
-        for(int i=start; i<end; i++)
-        {
-            if(i!=start && nums[i]==nums[i-1]) continue;
-            find(nums,i+1,end,nums[i],ans1,target);
-        } 
-    }
+    
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target)
     {
