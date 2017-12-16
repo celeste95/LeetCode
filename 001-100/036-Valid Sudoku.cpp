@@ -1,9 +1,9 @@
-class Solution {//mine
+class Solution {
 private:
     vector<vector <vector <bool>>> num_valid;
     bool insert(int row,int col,char c)
     {
-        if(c='.') return true;
+        if(c=='.') return true;
         if(!num_valid[row][col][c-'1']) return false;
         else
         {
@@ -16,7 +16,7 @@ private:
             {
                 for(int j=0;j<3;j++)
                 {
-                    num_valid[row/3+i][col/3+j][c-'1']=false;
+                    num_valid[row/3*3+i][col/3*3+j][c-'1']=false;
                 }
             }
             return true;
