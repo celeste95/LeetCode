@@ -34,25 +34,28 @@ private:
     }
 };
 
-class Solution {
-public:
-    string getPermutation(int n, int k) {
-        string ans = "";
-        int i, j, t, sum, jie;
-        jie = 1;
-        for (i = 1; i <= n; i++){
-            jie = i * jie;
-            ans += to_string(i);
-        }
-        for (i = 0; i < n; i++){
-            jie /= n - i;
-            for (sum = 0, j = 1; j <= n; j++){
-                if (sum + jie >= k) break;
-                sum += jie;
-                swap(ans[i], ans[i + j]);
-            }
-            k -= sum;
-        }
-        return ans;
+string getPermutation(int n, int k) {
+    int pTable[10] = {1};
+    for(int i = 1; i <= 9; i++){
+        pTable[i] = i * pTable[i - 1];
     }
-};
+    string result;
+    vector<char> numSet;
+    numSet.push_back('1');
+    numSet.push_back('2');
+    numSet.push_back('3');
+    numSet.push_back('4');
+    numSet.push_back('5');
+    numSet.push_back('6');
+    numSet.push_back('7');
+    numSet.push_back('8');
+    numSet.push_back('9');
+    while(n > 0){
+        int temp = (k - 1) / pTable[n - 1];
+        result += numSet[temp];
+        numSet.erase(numSet.begin() + temp);
+        k = k - temp * pTable[n - 1];
+        n--;
+    }
+    return result;
+}
