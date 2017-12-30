@@ -46,3 +46,24 @@ class Solution {
 }
 };
 
+
+
+class Solution {
+    //weird runtime error
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        if(matrix.size()==0) return false;
+        if(matrix[0].size()==0) return false;
+        int top=0;
+        int bottom=matrix.size()-1;
+        while(top<=bottom)
+        {
+            int mid = top + ((bottom - top) >> 1); 
+            if(matrix[mid][0]>target) bottom = mid - 1;
+            else top = mid + 1;
+        }
+        return binary_search(matrix[bottom].begin(),matrix[bottom].end(),target);
+    }
+};
+
+
