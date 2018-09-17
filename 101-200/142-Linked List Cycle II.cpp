@@ -12,11 +12,11 @@ public:
         if(head==nullptr) return nullptr;
         ListNode *walker = head;
         ListNode *runner = head;
-        int cnt=0;
+        //int cnt=0;
         while(runner->next!=nullptr && runner->next->next!=nullptr) {
             walker = walker->next;
             runner = runner->next->next;
-            cnt++;
+            //cnt++;
             if(walker==runner) {
                 walker = head;
                 while(walker!=runner) {
